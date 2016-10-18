@@ -10,6 +10,8 @@ library("topGO")
 ####################
 # Import gene-to-GO mappings: cotton GO annotation file downloaded from phytozome.
 geneID2GO <- readMappings(file = "cotton.v2.1.stable.txt")
+names(geneID2GO)<-gsub("[.]1$","",names(geneID2GO) )
+
 
 # Import all Gorai IDs as "universe"; note that for most enrichment analysis, "universe" should be background genes (e.g., genes included for DE or network analysis) instead of All genome.
 id<-read.table("Dgenome_id.txt",header=TRUE,colClasses="character")
